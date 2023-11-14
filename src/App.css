@@ -1,0 +1,101 @@
+body {
+  background-color: #C8D0D2;
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: white;
+  padding: 0 1.5rem;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
+}
+.header .form-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.5rem;
+}
+.header .form-group label {
+  color: #777;
+  font-size: 1.15rem;
+  margin-bottom: 0.25rem;
+  margin-right: 5px;
+}
+.header .form-group input {
+  font-size: 1rem;
+}
+.header .form-group select {
+  font-size: 1rem;
+}
+.header .btn {
+  background-color: hsl(200, 100%, 50%);
+  color: white;
+  padding: 0.5em 1em;
+  border-radius: 0.3em;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.header .btn:hover {
+  background-color: hsl(200, 100%, 40%);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 3rem 25%;
+}
+
+.card-grid {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: 200ms ease-in-out;
+  transform: perspective(1000px) rotateY(var(--rotate-y, 0)) translateY(var(--translate-y, 0));
+}
+.card:hover {
+  --translate-y: -3px;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.8);
+}
+.card .front, .card .back {
+  position: absolute;
+  padding: 1rem;
+  backface-visibility: hidden;
+}
+.card .back {
+  transform: rotateY(180deg);
+}
+.card .front {
+  left: 0;
+}
+.card .front .flashcard-options {
+  margin-top: 0.5rem;
+}
+.card .front .flashcard-options .flashcard-option {
+  margin-top: 0.25rem;
+  color: #555;
+  font-size: 0.75rem;
+}
+.card .front .flashcard-options .flashcard-option:first-child {
+  margin-top: 0;
+}
+
+.flip {
+  --rotate-y: 180deg;
+}
